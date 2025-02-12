@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=4 uid="uid://c50yg20d1mhb6"]
+
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_7jcec"]
+[ext_resource type="Texture2D" uid="uid://b37jvveeitlh8" path="res://choice 1.png" id="2_eqn3x"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fn28h"]
+texture = ExtResource("2_eqn3x")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rdjso"]
+sources/0 = SubResource("TileSetAtlasSource_fn28h")
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_7jcec")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = 1
+position = Vector2(16, 16)
+tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAAAAP//AAABAAAAAAABAP//AAABAAAAAAACAP//AAABAAAAAAADAP//AAABAAAAAAAEAP//AAABAAAAAAAFAP//AAABAAAAAAD//wAAAAAAAAEAAAD//wEAAAAAAAEAAAD//wIAAAAAAAEAAAD//wMAAAAAAAEAAAD//wQAAAAAAAEAAAD//wUAAAAAAAEAAAD//wYAAAAAAAEAAAD//wcAAAAAAAEAAAD//wgAAAAAAAEAAAD//wkAAAAAAAEAAAD//woAAAAAAAEAAAD//wsAAAAAAAEAAAD//wwAAAAAAAEAAAD//w0AAAAAAAIAAAAAAA0AAAABAAIAAAABAA0AAAABAAIAAAACAA0AAAABAAIAAAADAA0AAAABAAIAAAAEAA0AAAABAAIAAAAFAA0AAAABAAIAAAAAAAAAAAABAAEAAAAAAAEAAAABAAEAAAAAAAIAAAABAAEAAAAAAAMAAAABAAEAAAAAAAQAAAABAAEAAAAAAAUAAAABAAEAAAAAAAYAAAABAAEAAAAAAAcAAAABAAEAAAAAAAgAAAABAAEAAAAAAAkAAAABAAEAAAAAAAoAAAABAAEAAAAAAAsAAAABAAEAAAAAAAwAAAABAAEAAAABAAAAAAABAAEAAAABAAEAAAABAAEAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAABAAQAAAABAAEAAAABAAUAAAABAAEAAAABAAYAAAABAAEAAAABAAcAAAABAAEAAAABAAgAAAABAAEAAAABAAkAAAABAAEAAAABAAoAAAABAAEAAAABAAsAAAABAAEAAAABAAwAAAABAAEAAAACAAAAAAABAAEAAAACAAEAAAABAAEAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAEAAAACAAUAAAABAAEAAAACAAYAAAABAAEAAAACAAcAAAABAAEAAAACAAgAAAABAAEAAAACAAkAAAABAAEAAAACAAoAAAABAAEAAAACAAsAAAABAAEAAAACAAwAAAABAAEAAAADAAAAAAABAAEAAAADAAEAAAABAAEAAAADAAIAAAABAAEAAAADAAMAAAABAAEAAAADAAQAAAABAAEAAAADAAUAAAABAAEAAAADAAYAAAABAAEAAAADAAcAAAABAAEAAAADAAgAAAABAAEAAAADAAkAAAABAAEAAAADAAoAAAABAAEAAAADAAsAAAABAAEAAAADAAwAAAABAAEAAAAEAAAAAAABAAEAAAAEAAEAAAABAAEAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAAEAAQAAAABAAEAAAAEAAUAAAABAAEAAAAEAAYAAAABAAEAAAAEAAcAAAABAAEAAAAEAAgAAAABAAEAAAAEAAkAAAABAAEAAAAEAAoAAAABAAEAAAAEAAsAAAABAAEAAAAEAAwAAAABAAEAAAAFAAAAAAABAAEAAAAFAAEAAAABAAEAAAAFAAIAAAABAAEAAAAFAAMAAAABAAEAAAAFAAQAAAABAAEAAAAFAAUAAAABAAEAAAAFAAYAAAABAAEAAAAFAAcAAAABAAEAAAAFAAgAAAABAAEAAAAFAAkAAAABAAEAAAAFAAoAAAABAAEAAAAFAAsAAAABAAEAAAAFAAwAAAABAAEAAAAGAP//AAACAAAAAAAGAAAAAAACAAEAAAAGAAEAAAACAAEAAAAGAAIAAAACAAEAAAAGAAMAAAACAAEAAAAGAAQAAAACAAEAAAAGAAUAAAACAAEAAAAGAAYAAAACAAEAAAAGAAcAAAACAAEAAAAGAAgAAAACAAEAAAAGAAkAAAACAAEAAAAGAAoAAAACAAEAAAAGAAsAAAACAAEAAAAGAAwAAAACAAEAAAAGAA0AAAACAAIAAAA=")
+tile_set = SubResource("TileSet_rdjso")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 150.0
+offset_bottom = 278.0
+
+[node name="Label-POKEDEX" type="Label" parent="Menu"]
+z_index = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0.295867, 0.295866, 0.295866, 1)
+theme_override_colors/font_shadow_color = Color(0.74558, 0.74558, 0.74558, 1)
+text = "POKEDEX"
+
+[node name="Label-POKEMON" type="Label" parent="Menu"]
+z_index = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0.295867, 0.295866, 0.295866, 1)
+theme_override_colors/font_shadow_color = Color(0.74558, 0.74558, 0.74558, 1)
+text = "POKEMON"
+
+[node name="Label-BAG" type="Label" parent="Menu"]
+z_index = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0.295867, 0.295866, 0.295866, 1)
+theme_override_colors/font_shadow_color = Color(0.74558, 0.74558, 0.74558, 1)
+text = "BAG"
+
+[node name="Label-POKEGEAR" type="Label" parent="Menu"]
+z_index = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0.295867, 0.295866, 0.295866, 1)
+theme_override_colors/font_shadow_color = Color(0.74558, 0.74558, 0.74558, 1)
+text = "POKEGEAR"
+
+[node name="Label-PLAYER" type="Label" parent="Menu"]
+z_index = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0.295867, 0.295866, 0.295866, 1)
+theme_override_colors/font_shadow_color = Color(0.74558, 0.74558, 0.74558, 1)
+text = "SMOOT"
+
+[node name="Label-SAVE" type="Label" parent="Menu"]
+z_index = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0.295867, 0.295866, 0.295866, 1)
+theme_override_colors/font_shadow_color = Color(0.74558, 0.74558, 0.74558, 1)
+text = "SAVE"
+
+[node name="Label-OPTIONS" type="Label" parent="Menu"]
+z_index = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0.295867, 0.295866, 0.295866, 1)
+theme_override_colors/font_shadow_color = Color(0.74558, 0.74558, 0.74558, 1)
+text = "OPTIONS"
+
+[node name="Label-EXIT" type="Label" parent="Menu"]
+z_index = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0.295867, 0.295866, 0.295866, 1)
+theme_override_colors/font_shadow_color = Color(0.74558, 0.74558, 0.74558, 1)
+text = "EXIT"

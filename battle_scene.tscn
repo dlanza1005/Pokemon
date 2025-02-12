@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3p6loporvhea"]
+
+[ext_resource type="Texture2D" uid="uid://bfmexxes25jpd" path="res://Bag/bg_8.png" id="1_r7qab"]
+[ext_resource type="Texture2D" uid="uid://72vp8qbooyyf" path="res://Battle/Battlebacks/battlebgField.png" id="2_1kg27"]
+[ext_resource type="Texture2D" uid="uid://blg4hvgbjh88d" path="res://Battle/overlay_command.png" id="3_87sxw"]
+[ext_resource type="Texture2D" uid="uid://lfgqo2cgo0c2" path="res://Battle/overlay_fight.png" id="4_85dq1"]
+[ext_resource type="Texture2D" uid="uid://cbj5j1me1gm60" path="res://Battle/overlay_message.png" id="5_a50ui"]
+[ext_resource type="Texture2D" uid="uid://dfdme46gluqfn" path="res://Battle/databox_normal.png" id="6_633gq"]
+[ext_resource type="Texture2D" uid="uid://e4eyike55myg" path="res://Battle/databox_normal_foe.png" id="7_4xvi1"]
+
+[node name="Bag Menu" type="Node2D"]
+
+[node name="Bg8" type="Sprite2D" parent="."]
+texture = ExtResource("1_r7qab")
+
+[node name="BattlebgField" type="Sprite2D" parent="."]
+position = Vector2(0, -48)
+texture = ExtResource("2_1kg27")
+
+[node name="OverlayCommand" type="Sprite2D" parent="."]
+position = Vector2(0, 144)
+texture = ExtResource("3_87sxw")
+
+[node name="OverlayFight" type="Sprite2D" parent="."]
+position = Vector2(0, 144)
+texture = ExtResource("4_85dq1")
+
+[node name="OverlayMessage" type="Sprite2D" parent="."]
+position = Vector2(0, 144)
+texture = ExtResource("5_a50ui")
+
+[node name="DataboxNormal" type="Sprite2D" parent="."]
+position = Vector2(171, 39)
+texture = ExtResource("6_633gq")
+
+[node name="DataboxNormalFoe" type="Sprite2D" parent="."]
+position = Vector2(-152, -114)
+texture = ExtResource("7_4xvi1")

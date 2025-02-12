@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://j5n0ghawacbb"]
+
+[ext_resource type="Texture2D" uid="uid://dmq4tjx1tkyd0" path="res://Pokedex/bg_list.png" id="1_hiw4b"]
+
+[node name="Bag Menu" type="Node2D"]
+
+[node name="BgList" type="Sprite2D" parent="."]
+scale = Vector2(0.961, 0.961)
+texture = ExtResource("1_hiw4b")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh7bq658ccbsp"]
+
+[ext_resource type="Script" path="res://pokemon_object.gd" id="1_vb0b1"]
+[ext_resource type="Texture2D" uid="uid://dwpjyv0jcka5c" path="res://icons/icon000.png" id="2_gi7qy"]
+[ext_resource type="Texture2D" uid="uid://bpokrmgyp8t25" path="res://Battlers/000.png" id="3_0wxbd"]
+[ext_resource type="Texture2D" uid="uid://bg061tib8wh84" path="res://Battlers/000b.png" id="4_55crg"]
+[ext_resource type="Texture2D" uid="uid://cnk50ke34qedb" path="res://Summary/icon_ball_00.png" id="5_ekhpw"]
+
+[node name="Pokemon Object" type="Node2D"]
+script = ExtResource("1_vb0b1")
+
+[node name="icon" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_gi7qy")
+
+[node name="battle_front" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("3_0wxbd")
+
+[node name="battle_back" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("4_55crg")
+
+[node name="IconBall00" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("5_ekhpw")

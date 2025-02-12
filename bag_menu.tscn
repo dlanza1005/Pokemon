@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://y837sqnur5h6"]
+
+[ext_resource type="Texture2D" uid="uid://bfmexxes25jpd" path="res://Bag/bg_8.png" id="1_nda0a"]
+
+[node name="Bag Menu" type="Node2D"]
+
+[node name="Bg8" type="Sprite2D" parent="."]
+scale = Vector2(0.960612, 0.960612)
+texture = ExtResource("1_nda0a")

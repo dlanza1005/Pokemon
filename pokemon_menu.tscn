@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=4 uid="uid://dh7mvadlcetdn"]
+
+[ext_resource type="Script" path="res://pokemon_menu.gd" id="1_hg0o2"]
+[ext_resource type="Texture2D" uid="uid://c71md51u2nsp6" path="res://Party/bg.PNG" id="2_70s74"]
+[ext_resource type="PackedScene" uid="uid://m1vd1bkb8tjr" path="res://party_pokemon_card.tscn" id="2_kkbyw"]
+[ext_resource type="Texture2D" uid="uid://b37jvveeitlh8" path="res://choice 1.png" id="3_cx17s"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5qd72"]
+texture = ExtResource("3_cx17s")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_omqd8"]
+sources/0 = SubResource("TileSetAtlasSource_5qd72")
+
+[node name="PokemonMenu" type="Node2D"]
+position = Vector2(245, 184)
+script = ExtResource("1_hg0o2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6.10352e-05, 1.52588e-05)
+scale = Vector2(0.961, 0.961)
+texture = ExtResource("2_70s74")
+
+[node name="Slot1" parent="." instance=ExtResource("2_kkbyw")]
+unique_name_in_owner = true
+offset_left = -123.0
+offset_top = -137.5
+offset_right = -83.0
+offset_bottom = -97.5
+scale = Vector2(0.961, 0.961)
+
+[node name="Slot2" parent="." instance=ExtResource("2_kkbyw")]
+unique_name_in_owner = true
+offset_left = 123.0
+offset_top = -122.0
+offset_right = 163.0
+offset_bottom = -82.0
+scale = Vector2(0.961, 0.961)
+
+[node name="Slot3" parent="." instance=ExtResource("2_kkbyw")]
+unique_name_in_owner = true
+offset_left = -123.0
+offset_top = -45.0
+offset_right = -83.0
+offset_bottom = -5.0
+scale = Vector2(0.961, 0.961)
+
+[node name="Slot4" parent="." instance=ExtResource("2_kkbyw")]
+unique_name_in_owner = true
+offset_left = 123.0
+offset_top = -29.8
+offset_right = 163.0
+offset_bottom = 10.2
+scale = Vector2(0.961, 0.961)
+
+[node name="Slot5" parent="." instance=ExtResource("2_kkbyw")]
+unique_name_in_owner = true
+offset_left = -123.0
+offset_top = 47.0
+offset_right = -83.0
+offset_bottom = 87.0
+scale = Vector2(0.961, 0.961)
+
+[node name="Slot6" parent="." instance=ExtResource("2_kkbyw")]
+unique_name_in_owner = true
+offset_left = 123.0
+offset_top = 62.5
+offset_right = 163.0
+offset_bottom = 102.5
+scale = Vector2(0.961, 0.961)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AADx/woAAAAAAAIAAADx/wkAAAAAAAEAAADx/wgAAAAAAAEAAAAAAAcAAAABAAAAAAD//wcAAAABAAAAAAD+/wcAAAABAAAAAAD9/wcAAAABAAAAAAD8/wcAAAABAAAAAAD7/wcAAAABAAAAAAD6/wcAAAABAAAAAAD5/wcAAAABAAAAAAD4/wcAAAABAAAAAAD3/wcAAAABAAAAAAD2/wcAAAABAAAAAAD1/wcAAAABAAAAAAD0/wcAAAABAAAAAADz/wcAAAABAAAAAADy/wcAAAABAAAAAADx/wcAAAAAAAAAAADz/wgAAAABAAEAAADy/wgAAAABAAEAAAD0/wgAAAABAAEAAAD1/wgAAAABAAEAAAD2/wgAAAABAAEAAAD3/wgAAAABAAEAAAD4/wkAAAABAAEAAAD5/wkAAAABAAEAAAD6/wkAAAABAAEAAAD7/wkAAAABAAEAAAD8/wkAAAABAAEAAAD4/wgAAAABAAEAAAD5/wgAAAABAAEAAAD9/wkAAAABAAEAAAD+/wkAAAABAAEAAAD//wkAAAABAAEAAADy/wkAAAABAAEAAADz/wkAAAABAAEAAAD0/wkAAAABAAEAAAD1/wkAAAABAAEAAAD2/wkAAAABAAEAAAD3/wkAAAABAAEAAAD6/wgAAAABAAEAAAD7/wgAAAABAAEAAAD8/wgAAAABAAEAAAD9/wgAAAABAAEAAAD+/wgAAAABAAEAAAD//wgAAAABAAEAAAAAAAgAAAABAAEAAAAAAAkAAAABAAEAAADy/woAAAABAAIAAADz/woAAAABAAIAAAD0/woAAAABAAIAAAD1/woAAAABAAIAAAD2/woAAAABAAIAAAD3/woAAAABAAIAAAD4/woAAAABAAIAAAD5/woAAAABAAIAAAD6/woAAAABAAIAAAD7/woAAAABAAIAAAD8/woAAAABAAIAAAD9/woAAAABAAIAAAD+/woAAAABAAIAAAD//woAAAABAAIAAAAAAAoAAAABAAIAAAA=")
+tile_set = SubResource("TileSet_omqd8")

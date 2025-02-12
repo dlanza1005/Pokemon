@@ -1,0 +1,258 @@
+[gd_scene load_steps=18 format=3 uid="uid://m1vd1bkb8tjr"]
+
+[ext_resource type="Texture2D" uid="uid://iow35ldhgjtq" path="res://Party/panel_blank.png" id="1_3apej"]
+[ext_resource type="Texture2D" uid="uid://lwbvrarq8t3w" path="res://Party/panel_rect.png" id="1_08n21"]
+[ext_resource type="Script" path="res://party_pokemon_card.gd" id="1_yd86m"]
+[ext_resource type="Texture2D" uid="uid://cvvb0npxhda7r" path="res://Party/panel_rect_faint.png" id="3_b0btn"]
+[ext_resource type="Texture2D" uid="uid://cgbi5s2pkfhca" path="res://Party/panel_rect_faint_sel.png" id="4_uxmkr"]
+[ext_resource type="Texture2D" uid="uid://dhcnhpdnu4cjv" path="res://Party/panel_rect_sel.png" id="5_7dvpy"]
+[ext_resource type="Texture2D" uid="uid://cc8gywf06p2oc" path="res://Party/panel_rect_swap.png" id="6_2hqdp"]
+[ext_resource type="Texture2D" uid="uid://gldrcpfelpsf" path="res://Party/panel_rect_swap_sel2.png" id="7_kgpw0"]
+[ext_resource type="Texture2D" uid="uid://cf0xwy0vxaf4s" path="res://Party/panel_rect_swap_sel.png" id="8_oekis"]
+[ext_resource type="Texture2D" uid="uid://b7g23p7bluh80" path="res://Party/icon_ball.PNG" id="9_kf7ki"]
+[ext_resource type="Texture2D" uid="uid://v6hdpb8nyyi3" path="res://Party/icon_ball_sel.PNG" id="10_rbdw2"]
+[ext_resource type="Texture2D" uid="uid://c215gvukpl773" path="res://Party/overlay_lv.png" id="11_wklmf"]
+[ext_resource type="Texture2D" uid="uid://bsexmukmy7v0t" path="res://Party/overlay_hp_back_swap.png" id="12_g6wub"]
+[ext_resource type="FontFile" uid="uid://b363nacgsgy6v" path="res://pkmnems.ttf" id="12_rngkq"]
+[ext_resource type="Texture2D" uid="uid://b4f358ffc4vqa" path="res://Party/overlay_hp_back.png" id="13_fqdau"]
+[ext_resource type="Texture2D" uid="uid://de8ggngg1ghro" path="res://Party/overlay_hp_back_faint.png" id="14_5uh44"]
+[ext_resource type="Script" path="res://name_label.gd" id="16_3jy6u"]
+
+[node name="Party Pokemon Card" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_yd86m")
+
+[node name="PanelBlank" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_3apej")
+
+[node name="PanelRect2" type="Sprite2D" parent="."]
+texture = ExtResource("1_08n21")
+
+[node name="PanelRectFaint" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_b0btn")
+
+[node name="PanelRectFaintSel" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_uxmkr")
+
+[node name="PanelRectSel2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_7dvpy")
+
+[node name="PanelRectSwap" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_2hqdp")
+
+[node name="PanelRectSwapSel2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_kgpw0")
+
+[node name="PanelRectSwapSel" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("8_oekis")
+
+[node name="IconBall" type="Sprite2D" parent="."]
+position = Vector2(-98, -21)
+texture = ExtResource("9_kf7ki")
+
+[node name="IconBallSel" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-98, -21)
+texture = ExtResource("10_rbdw2")
+
+[node name="OverlayLv2" type="Sprite2D" parent="."]
+position = Vector2(-105, 32)
+texture = ExtResource("11_wklmf")
+
+[node name="OverlayHpBackSwap" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(51, 10)
+texture = ExtResource("12_g6wub")
+
+[node name="OverlayHpBack" type="Sprite2D" parent="."]
+position = Vector2(51, 10)
+texture = ExtResource("13_fqdau")
+
+[node name="OverlayHpBackFaint" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(51, 10)
+texture = ExtResource("14_5uh44")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 59.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("12_rngkq")
+theme_override_font_sizes/font_size = 22
+text = "hp/HP"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 5.0
+offset_right = 112.0
+offset_bottom = 32.0
+scale = Vector2(1, 0.3)
+
+[node name="NAME_Label" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("16_3jy6u")
+
+[node name="NAME_Shadow1" type="Label" parent="NAME_Label"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -20.0
+offset_right = 24.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_fonts/font = ExtResource("12_rngkq")
+theme_override_font_sizes/font_size = 22
+text = "NAME"
+
+[node name="NAME_Shadow2" type="Label" parent="NAME_Label"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -20.0
+offset_right = 22.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_fonts/font = ExtResource("12_rngkq")
+theme_override_font_sizes/font_size = 22
+text = "NAME"
+
+[node name="NAME_Shadow3" type="Label" parent="NAME_Label"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -22.0
+offset_right = 24.0
+offset_bottom = 1.0
+theme_override_colors/font_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_fonts/font = ExtResource("12_rngkq")
+theme_override_font_sizes/font_size = 22
+text = "NAME"
+
+[node name="NAME_White" type="Label" parent="NAME_Label"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 1.0
+theme_override_fonts/font = ExtResource("12_rngkq")
+theme_override_font_sizes/font_size = 22
+text = "NAME"
+
+[node name="LEVEL_Label" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -74.0
+offset_top = 44.0
+offset_right = -34.0
+offset_bottom = 84.0
+script = ExtResource("16_3jy6u")
+
+[node name="LEVEL_Shadow1" type="Label" parent="LEVEL_Label"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -20.0
+offset_right = 24.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_fonts/font = ExtResource("12_rngkq")
+theme_override_font_sizes/font_size = 22
+text = "LEVEL"
+
+[node name="LEVEL_Shadow2" type="Label" parent="LEVEL_Label"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -20.0
+offset_right = 22.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_fonts/font = ExtResource("12_rngkq")
+theme_override_font_sizes/font_size = 22
+text = "LEVEL"
+
+[node name="LEVEL_Shadow3" type="Label" parent="LEVEL_Label"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -22.0
+offset_right = 24.0
+offset_bottom = 1.0
+theme_override_colors/font_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_fonts/font = ExtResource("12_rngkq")
+theme_override_font_sizes/font_size = 22
+text = "LEVEL"
+
+[node name="LEVEL_White" type="Label" parent="LEVEL_Label"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 1.0
+theme_override_fonts/font = ExtResource("12_rngkq")
+theme_override_font_sizes/font_size = 22
+text = "LEVEL"
+
+[node name="HP_Label" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 37.0
+offset_top = 43.0
+offset_right = 77.0
+offset_bottom = 83.0
+script = ExtResource("16_3jy6u")
+
+[node name="HP_Shadow1" type="Label" parent="HP_Label"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -20.0
+offset_right = 24.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_fonts/font = ExtResource("12_rngkq")
+theme_override_font_sizes/font_size = 22
+text = "hp/HP"
+
+[node name="HP_Shadow2" type="Label" parent="HP_Label"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -20.0
+offset_right = 22.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_fonts/font = ExtResource("12_rngkq")
+theme_override_font_sizes/font_size = 22
+text = "hp/HP"
+
+[node name="HP_Shadow3" type="Label" parent="HP_Label"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -22.0
+offset_right = 24.0
+offset_bottom = 1.0
+theme_override_colors/font_color = Color(0.156863, 0.156863, 0.156863, 1)
+theme_override_fonts/font = ExtResource("12_rngkq")
+theme_override_font_sizes/font_size = 22
+text = "hp/HP"
+
+[node name="HP_White" type="Label" parent="HP_Label"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 1.0
+theme_override_fonts/font = ExtResource("12_rngkq")
+theme_override_font_sizes/font_size = 22
+text = "hp/HP"
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
