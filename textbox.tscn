@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbvq1ln3ccppd"]
+
+[ext_resource type="Texture2D" uid="uid://cbj5j1me1gm60" path="res://Battle/overlay_message.png" id="1_eigle"]
+[ext_resource type="FontFile" uid="uid://dwnh68o01s8ns" path="res://pkmnemn.ttf" id="2_udpec"]
+
+[node name="Textbox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="OverlayMessage" type="Sprite2D" parent="."]
+position = Vector2(256, 48)
+texture = ExtResource("1_eigle")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 29.0
+offset_top = 23.0
+offset_right = 139.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_udpec")
+theme_override_font_sizes/font_size = 26
+text = "DFGDFDFGDFG"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+offset_left = 29.0
+offset_top = 54.0
+offset_right = 139.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_udpec")
+theme_override_font_sizes/font_size = 26
+text = "DFGDFDFGDFG"

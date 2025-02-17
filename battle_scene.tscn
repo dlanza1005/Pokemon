@@ -1,21 +1,164 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3p6loporvhea"]
+[gd_scene load_steps=17 format=3 uid="uid://d3p6loporvhea"]
 
-[ext_resource type="Texture2D" uid="uid://bfmexxes25jpd" path="res://Bag/bg_8.png" id="1_r7qab"]
+[ext_resource type="Script" path="res://battle_scene.gd" id="1_g4d4e"]
 [ext_resource type="Texture2D" uid="uid://72vp8qbooyyf" path="res://Battle/Battlebacks/battlebgField.png" id="2_1kg27"]
 [ext_resource type="Texture2D" uid="uid://blg4hvgbjh88d" path="res://Battle/overlay_command.png" id="3_87sxw"]
+[ext_resource type="Texture2D" uid="uid://t1ldbjdym2a0" path="res://Battle/Battlebacks/playerbaseFieldGrass.png" id="3_y5kh3"]
+[ext_resource type="Texture2D" uid="uid://jbel56rpomlh" path="res://Battle/Battlebacks/enemybaseFieldGrass.png" id="4_3swak"]
 [ext_resource type="Texture2D" uid="uid://lfgqo2cgo0c2" path="res://Battle/overlay_fight.png" id="4_85dq1"]
 [ext_resource type="Texture2D" uid="uid://cbj5j1me1gm60" path="res://Battle/overlay_message.png" id="5_a50ui"]
-[ext_resource type="Texture2D" uid="uid://dfdme46gluqfn" path="res://Battle/databox_normal.png" id="6_633gq"]
-[ext_resource type="Texture2D" uid="uid://e4eyike55myg" path="res://Battle/databox_normal_foe.png" id="7_4xvi1"]
+[ext_resource type="PackedScene" uid="uid://disbwrvh73sai" path="res://your_battlecard.tscn" id="8_fjjhs"]
+[ext_resource type="PackedScene" uid="uid://5gpgpyk08yi6" path="res://opponent_battlecard.tscn" id="9_t48md"]
+[ext_resource type="FontFile" uid="uid://dwnh68o01s8ns" path="res://pkmnemn.ttf" id="10_wosq6"]
 
-[node name="Bag Menu" type="Node2D"]
+[sub_resource type="Animation" id="Animation_0pnme"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerbaseFieldGrass:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-168, 65)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemybaseFieldGrass:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(123, -16)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerCard:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(126, 38)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FoeCard:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-125, -132)]
+}
 
-[node name="Bg8" type="Sprite2D" parent="."]
-texture = ExtResource("1_r7qab")
+[sub_resource type="Animation" id="Animation_5q2cg"]
+resource_name = "base_fields_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerbaseFieldGrass:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-464, 65), Vector2(-192, 65)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemybaseFieldGrass:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(395, -16), Vector2(123, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_h0a1l"]
+resource_name = "foe_card"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FoeCard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-389, -132), Vector2(-125, -132)]
+}
+
+[sub_resource type="Animation" id="Animation_78dvp"]
+resource_name = "player card"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(406, 46), Vector2(126, 46)]
+}
+
+[sub_resource type="Animation" id="Animation_1xqtn"]
+resource_name = "player_card_idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(126, 46), Vector2(126, 41), Vector2(126, 46)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y1ntl"]
+_data = {
+"RESET": SubResource("Animation_0pnme"),
+"base_fields_in": SubResource("Animation_5q2cg"),
+"foe_card": SubResource("Animation_h0a1l"),
+"player card": SubResource("Animation_78dvp"),
+"player_card_idle": SubResource("Animation_1xqtn")
+}
+
+[node name="Battle Scene" type="Node2D"]
+script = ExtResource("1_g4d4e")
 
 [node name="BattlebgField" type="Sprite2D" parent="."]
 position = Vector2(0, -48)
 texture = ExtResource("2_1kg27")
+
+[node name="PlayerbaseFieldGrass" type="Sprite2D" parent="."]
+position = Vector2(-168, 65)
+texture = ExtResource("3_y5kh3")
+
+[node name="EnemybaseFieldGrass" type="Sprite2D" parent="."]
+position = Vector2(123, -16)
+texture = ExtResource("4_3swak")
 
 [node name="OverlayCommand" type="Sprite2D" parent="."]
 position = Vector2(0, 144)
@@ -29,10 +172,33 @@ texture = ExtResource("4_85dq1")
 position = Vector2(0, 144)
 texture = ExtResource("5_a50ui")
 
-[node name="DataboxNormal" type="Sprite2D" parent="."]
-position = Vector2(171, 39)
-texture = ExtResource("6_633gq")
+[node name="PlayerCard" parent="." instance=ExtResource("8_fjjhs")]
+position = Vector2(126, 38)
 
-[node name="DataboxNormalFoe" type="Sprite2D" parent="."]
-position = Vector2(-152, -114)
-texture = ExtResource("7_4xvi1")
+[node name="FoeCard" parent="." instance=ExtResource("9_t48md")]
+position = Vector2(-125, -132)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -227.0
+offset_top = 119.0
+offset_right = -117.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_wosq6")
+theme_override_font_sizes/font_size = 26
+text = "DFGDFDFGDFG"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -227.0
+offset_top = 150.0
+offset_right = -117.0
+offset_bottom = 173.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_wosq6")
+theme_override_font_sizes/font_size = 26
+text = "DFGDFDFGDFG"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y1ntl")
+}

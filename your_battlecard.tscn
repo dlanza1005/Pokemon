@@ -1,0 +1,280 @@
+[gd_scene load_steps=19 format=3 uid="uid://disbwrvh73sai"]
+
+[ext_resource type="Script" path="res://your_battlecard.gd" id="1_f0vxl"]
+[ext_resource type="Texture2D" uid="uid://dfdme46gluqfn" path="res://Battle/databox_normal.png" id="1_qe3hj"]
+[ext_resource type="Script" path="res://name_label.gd" id="2_53uce"]
+[ext_resource type="FontFile" uid="uid://dwnh68o01s8ns" path="res://pkmnemn.ttf" id="3_2dlgr"]
+[ext_resource type="Texture2D" uid="uid://cdx7c7em57e2e" path="res://Battle/overlay_lv.png" id="4_lhimp"]
+[ext_resource type="FontFile" uid="uid://b363nacgsgy6v" path="res://pkmnems.ttf" id="5_05dvc"]
+[ext_resource type="Texture2D" uid="uid://bpsm76wlj0w4y" path="res://Battle/overlay_exp.png" id="6_nsal5"]
+[ext_resource type="Texture2D" uid="uid://b4ecvxgc6fe5" path="res://Battle/overlay_hp.png" id="7_nuuh5"]
+[ext_resource type="Texture2D" uid="uid://bltqwwww6bunq" path="res://Battle/icon_statuses.png" id="8_sn0cc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id3fn"]
+atlas = ExtResource("7_nuuh5")
+region = Rect2(0, 0, 96, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sseoh"]
+atlas = ExtResource("7_nuuh5")
+region = Rect2(0, 6, 96, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5th4a"]
+atlas = ExtResource("7_nuuh5")
+region = Rect2(0, 12, 96, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e78r1"]
+atlas = ExtResource("8_sn0cc")
+region = Rect2(0, 0, 44, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eos7m"]
+atlas = ExtResource("8_sn0cc")
+region = Rect2(0, 16, 44, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5mjc"]
+atlas = ExtResource("8_sn0cc")
+region = Rect2(0, 32, 44, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arh25"]
+atlas = ExtResource("8_sn0cc")
+region = Rect2(0, 48, 44, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rbx7"]
+atlas = ExtResource("8_sn0cc")
+region = Rect2(0, 64, 44, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0xpr7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id3fn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sseoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5th4a")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e78r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eos7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5mjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arh25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rbx7")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(135, 52)
+script = ExtResource("1_f0vxl")
+
+[node name="DataboxNormal" type="Sprite2D" parent="."]
+texture = ExtResource("1_qe3hj")
+
+[node name="NAME_Label" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -68.0
+offset_top = -12.0
+offset_right = -28.0
+offset_bottom = 28.0
+script = ExtResource("2_53uce")
+
+[node name="NAME_Shadow1" type="Label" parent="NAME_Label"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -20.0
+offset_right = 24.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(0.721569, 0.721569, 0.721569, 1)
+theme_override_fonts/font = ExtResource("3_2dlgr")
+theme_override_font_sizes/font_size = 26
+text = "Name"
+
+[node name="NAME_Shadow2" type="Label" parent="NAME_Label"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -20.0
+offset_right = 22.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(0.721569, 0.721569, 0.721569, 1)
+theme_override_fonts/font = ExtResource("3_2dlgr")
+theme_override_font_sizes/font_size = 26
+text = "Name"
+
+[node name="NAME_Shadow3" type="Label" parent="NAME_Label"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -22.0
+offset_right = 24.0
+offset_bottom = 1.0
+theme_override_colors/font_color = Color(0.721569, 0.721569, 0.721569, 1)
+theme_override_fonts/font = ExtResource("3_2dlgr")
+theme_override_font_sizes/font_size = 26
+text = "Name"
+
+[node name="NAME_White" type="Label" parent="NAME_Label"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 1.0
+theme_override_colors/font_color = Color(0.282353, 0.282353, 0.282353, 1)
+theme_override_fonts/font = ExtResource("3_2dlgr")
+theme_override_font_sizes/font_size = 26
+text = "Name"
+
+[node name="OverlayLv" type="Sprite2D" parent="NAME_Label"]
+position = Vector2(140, -8)
+texture = ExtResource("4_lhimp")
+
+[node name="Level Label" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 101.0
+offset_top = -10.0
+offset_right = 141.0
+offset_bottom = 30.0
+script = ExtResource("2_53uce")
+
+[node name="NAME_Shadow1" type="Label" parent="Level Label"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -18.0
+offset_right = 24.0
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(0.721569, 0.721569, 0.721569, 1)
+theme_override_fonts/font = ExtResource("5_05dvc")
+theme_override_font_sizes/font_size = 22
+text = "42"
+
+[node name="NAME_Shadow2" type="Label" parent="Level Label"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 22.0
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(0.721569, 0.721569, 0.721569, 1)
+theme_override_fonts/font = ExtResource("5_05dvc")
+theme_override_font_sizes/font_size = 22
+text = "42"
+
+[node name="NAME_Shadow3" type="Label" parent="Level Label"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -20.0
+offset_right = 24.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(0.721569, 0.721569, 0.721569, 1)
+theme_override_fonts/font = ExtResource("5_05dvc")
+theme_override_font_sizes/font_size = 22
+text = "42"
+
+[node name="NAME_White" type="Label" parent="Level Label"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -20.0
+offset_right = 22.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(0.282353, 0.282353, 0.282353, 1)
+theme_override_fonts/font = ExtResource("5_05dvc")
+theme_override_font_sizes/font_size = 22
+text = "42"
+
+[node name="HP Label" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 47.0
+offset_top = 30.0
+offset_right = 87.0
+offset_bottom = 70.0
+script = ExtResource("2_53uce")
+
+[node name="NAME_Shadow1" type="Label" parent="HP Label"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -18.0
+offset_right = 24.0
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(0.721569, 0.721569, 0.721569, 1)
+theme_override_fonts/font = ExtResource("5_05dvc")
+theme_override_font_sizes/font_size = 22
+text = "42/69"
+
+[node name="NAME_Shadow2" type="Label" parent="HP Label"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 22.0
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(0.721569, 0.721569, 0.721569, 1)
+theme_override_fonts/font = ExtResource("5_05dvc")
+theme_override_font_sizes/font_size = 22
+text = "42/69"
+
+[node name="NAME_Shadow3" type="Label" parent="HP Label"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -20.0
+offset_right = 24.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(0.721569, 0.721569, 0.721569, 1)
+theme_override_fonts/font = ExtResource("5_05dvc")
+theme_override_font_sizes/font_size = 22
+text = "42/69"
+
+[node name="NAME_White" type="Label" parent="HP Label"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -20.0
+offset_right = 22.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(0.282353, 0.282353, 0.282353, 1)
+theme_override_fonts/font = ExtResource("5_05dvc")
+theme_override_font_sizes/font_size = 22
+text = "42/69"
+
+[node name="OverlayLv" type="Sprite2D" parent="."]
+position = Vector2(72, -20)
+texture = ExtResource("4_lhimp")
+
+[node name="experience bar" type="TextureProgressBar" parent="."]
+offset_left = -90.0
+offset_top = 33.0
+offset_right = 102.0
+offset_bottom = 73.0
+texture_over = ExtResource("6_nsal5")
+
+[node name="HP progress bar" type="TextureProgressBar" parent="."]
+offset_left = 54.0
+offset_right = 94.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HP progress bar"]
+sprite_frames = SubResource("SpriteFrames_0xpr7")
+animation = &"new_animation"
+frame_progress = 0.817638
+
+[node name="StatusCondition" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-50, 1)
+sprite_frames = SubResource("SpriteFrames_0xpr7")
+animation = &"new_animation_1"

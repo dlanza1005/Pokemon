@@ -5,39 +5,6 @@ extends Node2D
 
 
 
-
-# pokedex number
-# species name
-# nickname
-# type1
-# type2 or none
-# base stats # HP / Attack / Defense / Speed / Special Attack / Special Defense 
-# gender rate
-# growth rate
-# base xp # used to calculate how much XP you gain when defeating this pokemon
-# effort points (given upon defeat)
-# rareness
-# happiness
-# abilities
-# hidden ability
-# moves learned by levels
-# egg moves
-# height
-# weight
-# color
-# shape
-# kind (?)
-# pokedex (blurb?)
-# evolutions
-# IV (earned by this pokemon)
-# EV
-# ability index (for function codes?)
-# gender
-# nature
-# shiny
-# form
-# steps to hatch
-
 # learned moveset
 # current HP
 # battle stats
@@ -85,7 +52,7 @@ func save_to_dict():
 
 
 #########################################
-
+# create the variables
 var PKMN_name: String
 var internal_name: String
 var type1: String
@@ -115,6 +82,9 @@ var battler_enemy_y: int
 var battler_altitude: int
 var evolutions: Array
 
+# ... look up the dictionary items after defining the variables you want to define...
+
+# fill the variables from the dictionary if not defined, choose random otherwise..?
 func _init(data: Dictionary):
 	PKMN_name = data.get("Name", "")
 	internal_name = data.get("InternalName", "")

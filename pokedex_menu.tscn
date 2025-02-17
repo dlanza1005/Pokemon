@@ -5,5 +5,5 @@
 [node name="Bag Menu" type="Node2D"]
 
 [node name="BgList" type="Sprite2D" parent="."]
-scale = Vector2(0.961, 0.961)
+position = Vector2(256, 192)
 texture = ExtResource("1_hiw4b")

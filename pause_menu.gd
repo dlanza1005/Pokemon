@@ -2,21 +2,18 @@ extends Control
 
 #@onready var main = $"../../" # ???
 #
-## @onready var PokedexScreen = preload()
-## @onready var PokedexScreen = preload()
-#@onready var BagScreen = preload("res://bag_menu.tscn")
+@onready var PokedexScreen = preload("res://pokedex_menu.tscn")
+@onready var PokemonScreen = preload("res://pokemon_menu.tscn")
+@onready var BagScreen = preload("res://bag_menu.tscn")
 #
-#func _on_menu_actioned(item) -> void:
-	#print("item: ", item.text)
-	#if item.text == "POKEDEX":
-		#var bag = BagScreen.instantiate()
-		#$"..".add_child(bag)
-	#if item.text == "BAG":
-		#var bag = BagScreen.instantiate()
-		#$"..".add_child(bag)
-	#if item.text == "BAG":
-		#var bag = BagScreen.instantiate()
-		#$"..".add_child(bag)
+func _on_menu_actioned(item) -> void:
+	print("item: ", item.text)
+	if item.text == "POKEDEX":
+		$"..".add_child(PokedexScreen.instantiate())
+	if item.text == "POKEMON":
+		$"..".add_child(PokemonScreen.instantiate())
+	if item.text == "BAG":
+		$"..".add_child(BagScreen.instantiate())
 
 @onready var menu_items = $Menu.get_children()
 var selected_index: int = 0
@@ -43,3 +40,4 @@ func _input(event):
 		update_menu_highlight()
 	elif event.is_action_pressed("select_key"):
 		print("Selected:", menu_items[selected_index].text)
+		_on_menu_actioned(menu_items[selected_index])
