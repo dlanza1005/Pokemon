@@ -13,6 +13,6 @@ func _on_body_entered(body):
 
 
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	GameManager.replace_state(target_scene)
-	print("door! input event")
+#func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	#GameManager.replace_state(target_scene)
+	#print("door! input event")

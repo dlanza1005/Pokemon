@@ -4,14 +4,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1opon"]
 
-[node name="Door" type="Node2D"]
-
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Door" type="Area2D"]
 script = ExtResource("1_8bqsy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_1opon")
 
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="input_event" from="Area2D" to="Area2D" method="_on_input_event"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

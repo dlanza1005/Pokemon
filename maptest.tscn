@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://biw5dgfbmg8p6"]
+[gd_scene load_steps=12 format=4 uid="uid://biw5dgfbmg8p6"]
 
 [ext_resource type="Script" path="res://maptest.gd" id="1_a751e"]
 [ext_resource type="Texture2D" uid="uid://bm1i5f8gly05h" path="res://dawn_tileset.png" id="1_sph2f"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://camera_2d.gd" id="4_a7qet"]
 [ext_resource type="PackedScene" uid="uid://c50yg20d1mhb6" path="res://pause_menu.tscn" id="4_w3wdp"]
 [ext_resource type="PackedScene" uid="uid://bs8sqrmoo7ooh" path="res://door.tscn" id="6_4hb7d"]
+[ext_resource type="PackedScene" uid="uid://cncefpruiddsh" path="res://pokemon_mart.tscn" id="7_kkuj3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04ie8"]
 texture = ExtResource("1_sph2f")
@@ -16498,3 +16499,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Door" parent="." instance=ExtResource("6_4hb7d")]
 position = Vector2(200, 197)
+
+[node name="Door2" parent="." instance=ExtResource("6_4hb7d")]
+position = Vector2(120, 197)
+target_scene = ExtResource("7_kkuj3")

@@ -1,13 +1,11 @@
 extends Node
 
-@export var state_stack: Array = []  # Stack of active game states
+#@export var state_stack: Array = []  ## STOP USING THIS VARIABLE, USE THE SCENE TREE ITSELF!
 #var pkmn = preload("res://pokemon_object.tscn")
 #p1 = pkmn.instantiate()
 #p1.set_info(pkmn_name = "Bulbasaur", level = 5)
-#p1.initialize()
 #p2 = pkmn.instantiate()
 #p2.set_info(pkmn_name = "Bulbasaur", level = 5)
-#p2.initialize()
 ##var party = [p1, p2]
 # var box_pokemon
 #var item = preload()
@@ -20,25 +18,25 @@ extends Node
 
 # Function to push a new state (scene) onto the stack
 func push_state(state_scene: PackedScene):
-	if state_stack.size() > 0:
-		state_stack.back().set_process(false)  # Pause previous state
+	if get_child_count() > 0:
+		get_child(get_child_count()-1).set_process(false)  # Pause previous state
 
 	var new_state = state_scene.instantiate()
 	add_child(new_state)
-	state_stack.append(new_state)
+	#state_stack.append(new_state)
 
-	print("State pushed:", new_state.name, "| Stack size:", state_stack.size())
+	print("State pushed:", new_state.name, "| Stack size:", get_child_count())
 
 # Function to pop the current state
 func pop_state():
-	if state_stack.size() > 0:
-		var top_state = state_stack.pop_back()
+	if get_child_count() > 0:
+		var top_state = get_child(get_child_count()-1)
 		top_state.queue_free()  # Remove from scene tree
-		print("State popped:", top_state.name, "| Stack size:", state_stack.size())
+		print("State popped:", top_state.name, "| Stack size:", get_child_count())
 
 		# Resume previous state
-		if state_stack.size() > 0:
-			state_stack.back().set_process(true)
+		if get_child_count() > 0:
+			get_child(get_child_count()-1).set_process(true)
 
 # Function to replace the current state
 func replace_state(new_state_scene: PackedScene):
@@ -47,8 +45,8 @@ func replace_state(new_state_scene: PackedScene):
 
 # Function to peek at the current state
 func get_current_state():
-	if state_stack.size() > 0:
-		return state_stack.back()
+	if get_child_count() > 0:
+		return get_child(get_child_count()-1)
 	return null
 
 

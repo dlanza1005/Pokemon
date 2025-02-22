@@ -1,9 +1,19 @@
 extends Node2D
 
-@export var pokemon_name = "Bulbasaur"
-@export var level = 5
 
 
+#################PLAN################################
+## to use this tscn:
+# var pkmn = preload("res://pokemon_object.tscn")
+#p1 = pkmn.instantiate()
+#p1.set_info(pkmn_name = "Bulbasaur", instance_data: dict)
+
+# instance_data has things like level:5, moves = ["tackle","vine whip", "solar beam", "growl"]
+
+# 
+
+
+#####################################################
 
 # learned moveset
 # current HP
@@ -18,6 +28,24 @@ extends Node2D
 
 func calc_stats():
 	pass # calculate stats from base stats, level, IV, EV
+## stats and stuff
+#var base_stats: Array
+#var ATT: int
+#var DEF: int
+#var SPATT: int
+#var SPDEF: int
+#var SPD: int
+#var HP: int
+#var currentHP: int
+#var accuracy: int
+#var evasiveness: int
+#var battle_ATT: int
+#var battle_DEF: int
+#var battle_SPATT: int
+#var battle_SPDEF: int
+#var battle_SPD: int
+#var battle_accuracy: int # is this needed? is accuracy just reset to 1 after a battle?
+#var battle_evasiveness: int # is this needed? is evasiveness just reset to 1 after a battle?
 
 func calc_xp_from_lv():
 	pass # given the level of a (wild, caught) pokemon, how much XP do they have?
@@ -30,6 +58,9 @@ func calc_xp_rewarded():
 
 func get_initial_moves():
 	pass # what moves does this caught pokemon have?
+
+func instantiate_move(move):
+	pass # create a move instance by assigning the name, type, power, PP, priority, effects, etc.
 
 func reset_battle_stats():
 	pass # just the stats! HP and battle conditions and PP stay
@@ -52,7 +83,8 @@ func save_to_dict():
 
 
 #########################################
-# create the variables
+# create the variables.
+# Base Data:
 var PKMN_name: String
 var internal_name: String
 var type1: String
@@ -82,7 +114,43 @@ var battler_enemy_y: int
 var battler_altitude: int
 var evolutions: Array
 
-# ... look up the dictionary items after defining the variables you want to define...
+## Instance Data:
+var experience: int
+var level: int
+var EV: Array
+var IV: Array
+var item: String
+
+## stats and stuff
+var ATT: int
+var DEF: int
+var SPATT: int
+var SPDEF: int
+var SPD: int
+var HP: int
+var currentHP: int
+var accuracy: int
+var evasiveness: int
+var battle_ATT: int
+var battle_DEF: int
+var battle_SPATT: int
+var battle_SPDEF: int
+var battle_SPD: int
+var battle_accuracy: int # is this needed? is accuracy just reset to 1 after a battle?
+var battle_evasiveness: int # is this needed? is evasiveness just reset to 1 after a battle?
+
+
+
+
+
+# first you need PKMN_name in order to find its base data in the PBS file.
+# then you need instance data that defines level OR experience, and maybe other stuff.
+# then you can build the pokemon object.
+
+func set_info(pkmn_name: String, instance_data: Dictionary):
+	load_pokemon_base_data("res://PBS/pokemon.txt",pkmn_name) # base data
+	load_pokemon_instance_data(instance_data) # loads instance data and instantiates moves, items, etc.
+	calc_stats()
 
 # fill the variables from the dictionary if not defined, choose random otherwise..?
 func _init(data: Dictionary):
@@ -115,11 +183,10 @@ func _init(data: Dictionary):
 	battler_altitude = int(data.get("BattlerAltitude", "0"))
 	evolutions = data.get("Evolutions", "").split(",")
 
-func load_pokemon_data(file_path: String, target_name: String) -> void:
+func load_pokemon_base_data(file_path: String, target_name: String) -> void:
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	if not file:
 		print("Error opening file")
-
 
 	var data = {}
 	var found = false
@@ -145,17 +212,52 @@ func load_pokemon_data(file_path: String, target_name: String) -> void:
 	
 	if found:
 		_init(data)
+		print("Pokemon base data found for ", data["Name"])#_init(data)
 	else:
 		print("Pokemon not found")
+
+
+func load_pokemon_instance_data(instance_data: Dictionary):
+	if instance_data.has("experience"): 
+		experience = instance_data.experience
+		level = calc_lv_from_xp()
+	elif instance_data.has("level"):
+		level = instance_data.level
+		experience = calc_xp_from_lv()
+	else:
+		print("pokemon instance data missing a level or experience!")
+	
+	if instance_data.has("EV"):
+		EV = instance_data.EV
+	else:
+		EV = [0,0,0,0,0,0] # if there are no EVs defined, then we should assume it has none.
+	
+	if instance_data.has("IV"):
+		IV = instance_data.IV
+	else:
+		pass # if no IV defined, we should look it up or define it.
+	
+	if instance_data.has("item"):
+		item = instance_data.item
+	else:
+		item = "" # is that the right way to do this? define it as an empty string?
+	
+	if instance_data.has("moves"):
+		for move in instance_data.moves:
+			moves.append(instantiate_move(move))
+
+		
 		
 ############################################
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	load_pokemon_data("res://PBS/pokemon.txt","Bulbasaur")
-	print(PKMN_name)
-	print(evolutions)
+	#load_pokemon_base_data("res://PBS/pokemon.txt","Bulbasaur") # base data
+	#print(PKMN_name)
+	print("pokemon.tscn _ready() called!")
+	#pass #print(evolutions)
 	#%icon.texture = preload("res://icons/icon001.png")
 	#%battle_front.texture = preload("res://Battlers/001.png")
 	#%battle_back.texture = preload("res://Battlers/001b.png")
